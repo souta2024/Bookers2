@@ -3,13 +3,18 @@ class BooksController < ApplicationController
     @user_id = current_user.id
     @user = User.find(@user_id)
     @book = Book.new
+    @books = Book.all
   end
 
   def create
     @book = Book.new(book_params)
-    @book.user.id = current_user.id
+    @book.user_id = current_user.id
     @book.save
-    redirect_to root_path
+    redirect_to book_path(@book.id)
+  end
+
+  def show
+    @book = Book.find(params[:id])
   end
 
   private

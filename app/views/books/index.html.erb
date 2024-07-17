@@ -30,6 +30,27 @@
         <%= f.submit 'Create Book', class: "btn btn-success" %>
       <% end %>
     </div>
-    <div class="col-8 offset-1"></div>
+    <div class="col-8 offset-1">
+      <h2>Books</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Option</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <% @books.each do |book| %>
+              <td>画像</td>
+              <td>タイトル</td>
+              <td>オピニオン</td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 </div>
