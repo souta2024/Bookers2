@@ -1,28 +1,26 @@
-<div class="container">
-  <div class="row">
     <div class="col-3">
       <h2>User info</h2>
-      <p><%= image_tag @user.get_profile_image %></p>
+      <p><%= image_tag user.get_profile_image %></p>
       <table claa="table">
         <tbody>
           <tr>
             <th>name</th>
-            <th><%= @user.id %></th>
+            <th><%= user.id %></th>
           </tr>
           <tr>
             <th>introduction</th>
-            <th><%= @user.introduction %></th>
+            <th><%= user.introduction %></th>
           </tr>
         </tbody>
       </table>
       <div class="row">
-        <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
+        <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
         <i class="fa-solid fa-user-gear"></i>
         <% end %>
       </div>
 
       <h2>New book</h2>
-      <%= form_with model: @book do |f| %>
+      <%= form_with model: book_new do |f| %>
         <label>Title</label>
         <%= f.text_field :title, class: "form-control" %>
         <label>Opinion</label>
@@ -30,5 +28,3 @@
         <%= f.submit 'Create Book', class: "btn btn-success" %>
       <% end %>
     </div>
-  </div>
-</div>

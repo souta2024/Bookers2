@@ -1,0 +1,11 @@
+          <tbody>
+            <tr>
+              <td><%= image_tag book.user.get_profile_image %></td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
+            </tr>
+          </tbody>
