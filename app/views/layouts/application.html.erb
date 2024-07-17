@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <script src="https://kit.fontawesome.com/9cef0bc0f1.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,30 +16,53 @@
     <header>
       <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-          <%= link_to "Bookers", root_path, class: "navbar-brand text-light" %>
+          <a class="navbar-brand" href="/">
+            <span>Bookers</span>
+          </a>
           <ul class="navbar-nav d-flex flex-row">
             <li class="nav-item">
-              <%= link_to "Home", root_path, class: "nav-link text-light" %>
+              <%= link_to root_path, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-house"></i>
+                Home
+              <% end %>
             </li>
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "User", users_path, class: "nav-link text-light" %>
+              <%= link_to users_path, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-users"></i>
+                Users
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Books", books_path, class: "nav-link text-light" %>
+              <%= link_to books_path, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-book-open"></i>
+                Books
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Log out
+              <% end %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "About", about_path, class: "nav-link text-light" %>
+              <%= link_to about_path, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-link"></i>
+                About
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: "nav-link text-light" %>
+              <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-user-plus"></i>
+                Sign up
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: "nav-link text-light" %>
+              <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Log in
+              <% end %>
             </li>
             <% end %>
           </ul>
@@ -48,5 +72,14 @@
     <main>
       <%= yield %>
     </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
