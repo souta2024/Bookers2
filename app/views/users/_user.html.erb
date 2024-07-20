@@ -1,4 +1,3 @@
-    <div class="col-3">
       <h2>User info</h2>
       <p><%= image_tag user.get_profile_image %></p>
       <table claa="table">
@@ -13,20 +12,12 @@
           </tr>
         </tbody>
       </table>
-      
-      <% if user == current_user %>
+
       <div class="row">
         <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
         <i class="fa-solid fa-user-gear"></i>
         <% end %>
       </div>
-      <% else %>
-      <div class="row">
-        <%= link_to user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
-        <i class="fa-solid fa-user-gear"></i>
-        <% end %>
-      </div>
-      <% end %>
 
       <h2>New book</h2>
       <%= form_with model: book_new do |f| %>
@@ -36,4 +27,3 @@
         <%= f.text_area :body, class: "form-control" %>
         <%= f.submit 'Create Book', class: "btn btn-success" %>
       <% end %>
-    </div>

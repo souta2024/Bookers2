@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
-    <%= render "user", user: @user, book_new: @book_new %>
-    <div class="col-8 col-1">
+    <div class="col-md-3">
+      <%= render 'users/user', user: @user, book_new: @book_new %>
+    </div>
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table">
         <thead>
@@ -12,7 +14,11 @@
         </thead>
         <% @book.each do |book| %>
         <tbody>
-          <td><%= image_tag book.user.get_profile_image %></td>
+          <td>
+            <%= link_to user_path(book.user.id) do %>
+              <%= image_tag book.user.get_profile_image %>
+            <% end %>
+            </td>
           <td>
             <%= link_to book_path(book.id) do %>
             <%= book.title %>
